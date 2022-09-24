@@ -7,7 +7,7 @@ const objectiveSchema = mongoose.Schema({
         default: Date.now
     },
     updates: {
-        type: [{updateContent: String, timeSpent: Number}],
+        type: [String],
         default: []
     }
 });

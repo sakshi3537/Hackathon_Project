@@ -6,4 +6,4 @@ router.get('/', fetchObjectives);
 router.post('/', createObjective);
 router.patch('/:id', updateObjective);
 
-export default Router;
+export default router;

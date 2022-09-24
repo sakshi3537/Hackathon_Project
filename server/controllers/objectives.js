@@ -20,7 +20,7 @@ const createObjective = async (req, res) => {
         await newObjective.save();
         res.status(201).json(newObjective);
     } catch (error) {
-        
+        console.log(error);
         res.status(409).json(error);
     }
 }
@@ -29,7 +29,9 @@ const updateObjective = async (req, res) => {
     const {id}= req.params;
     const objective = req.body;
     try {
-        const updatedObjective = await objectiveModel.findByIdAndUpdate(id, objective, {new:true});
+        const correspondingObjective = await objectiveModel.findById(id);
+        correspondingObjective.updates.push(objective.update);
+        const updatedObjective = await objectiveModel.findByIdAndUpdate(id, correspondingObjective, {new:true});
         res.status(200).json(updatedObjective);
     } catch (error) {
         res.status(404).json(error);

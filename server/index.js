@@ -17,14 +17,13 @@ app.use('/objectives', Objectives);
 
 app.get('/', (req,res) => {
   res.send("Welcome to Self Tracking App")
-
 })
 
 
-const PORT = process.env.PORT|| 5000;
+const PORT = 5000;
 
-mongoose.connect(process.env.CONNECTION_URL)
-  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+mongoose.connect('mongodb+srv://sakshi:sakshi@cluster0.i2qhoqc.mongodb.net/test?retryWrites=true&w=majority')
+  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:5000`)))
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useNewUrlParser', true);
