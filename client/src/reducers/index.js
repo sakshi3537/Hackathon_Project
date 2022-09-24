@@ -1,7 +1,5 @@
 import { combineReducers } from "redux";
-import cardReducer from "./cardReducers";
+import objectiveReducer from "./objectiveReducers";
 import loadingReducer from "./loadingReducers";
-import authReducer from "./authReducers";
-import userReducer from "./userReducer";
 
-export const reducers= combineReducers({cardReducer,loadingReducer,authReducer,userReducer});
+export const reducers= combineReducers({objectiveReducer, loadingReducer});
