@@ -2,9 +2,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import express from 'express'
 import mongoose from 'mongoose'
-import Cards from './routes/cards.js'
-import Auth from './routes/auth.js'
-import User from './routes/users.js'
+import Objectives from './routes/objectives.js'
 import dotenv from 'dotenv';
 
 const app=express();
@@ -15,12 +13,10 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/cards',Cards);
-app.use('/auth',Auth);
-app.use('/',User);
+app.use('/objectives', Objectives);
 
 app.get('/', (req,res) => {
-  res.send("Welcome to Journal Entry")
+  res.send("Welcome to Self Tracking App")
 
 })
 
